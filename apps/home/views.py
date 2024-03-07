@@ -1,6 +1,14 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.views import View
+from django.contrib.auth import authenticate, login
 
 
-# Create your views here.
-def home_view(request):
-    return render(request,'index.html')
+def inner_view(request):
+    return render(request,'home/inner-page.html')
+
+def portifolio_view(request):
+    return render(request,'home/portfolio-details.html')
+
+class HomeView(View):
+    def get(self, request):
+        return render(request,'home/home.html')
