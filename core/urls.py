@@ -6,7 +6,7 @@ from apps.blogueiro import urls as blogueiros_urls
 
 urlpatterns = [
     path("", include(home_urls)),
-    path("manager/", admin.site.urls, name="manager"),
+    path("manager/", admin.site.urls),
     path("blog/", include(blog_urls)),
     path("blogueiros/", include(blogueiros_urls)),
     path("contas/",include('django.contrib.auth.urls')),

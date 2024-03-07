@@ -116,7 +116,7 @@ STATICFILES_DIRS =['shared/static']
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-LOGIN_REDIRECT_URL = 'manager' #fez login vai para
+LOGIN_REDIRECT_URL = 'admin:index' #fez login vai para
 LOGOUT_REDIRECT_URL = 'home' #deslogou vai para
 
 
