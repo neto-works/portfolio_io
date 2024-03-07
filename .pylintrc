@@ -6,7 +6,7 @@
 analyse-fallback-blocks=no
 
 #Disable regr
-disable =C0415,C0114,W0611,W0611,C0411,C0116,C0115,C0103,R0901,R0903
+disable =C0415,C0114,W0611,W0611,C0411,C0116,C0115,C0103,R0901,R0903,R0801,C0304
 
 # Clear in-memory caches upon conclusion of linting. Useful if running pylint
 # in a server-like mode.

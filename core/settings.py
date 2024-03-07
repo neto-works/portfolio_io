@@ -30,6 +30,9 @@ INSTALLED_APPS = [
     "apps.home",
     "apps.post",
     "apps.blogueiro",
+    "apps.developer",
+    "apps.categoria",
+    "apps.projeto",
 ]
 
 MIDDLEWARE = [
@@ -118,6 +121,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 LOGIN_REDIRECT_URL = 'admin:index' #fez login vai para
 LOGOUT_REDIRECT_URL = 'home' #deslogou vai para
-
 
 AUTH_USER_MODEL = 'usuario.CustomUsuarios'

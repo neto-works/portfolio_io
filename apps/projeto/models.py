@@ -6,8 +6,6 @@ class Projeto(models.Model):
     descricao = models.TextField()
     imagem = models.CharField(max_length=250)
     url = models.CharField(max_length=250)
-    usuario_id = models.ForeignKey('apps.usuario',on_delete=models.CASCADE)
-
+    usuario_id = models.ForeignKey('usuario.CustomUsuarios',on_delete=models.CASCADE)
     def __str__(self):
         return str(self.titulo)
-    
