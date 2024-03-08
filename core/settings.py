@@ -20,7 +20,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'apps.usuario',
+    "apps.usuario",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -113,6 +113,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 STATICFILES_DIRS =['shared/static']
+STATIC_ROOT = "shared/estaticos/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field

@@ -1,76 +1,363 @@
-{% extends 'index.html' %}
 {% load static %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="pt-BR" dir="ltr">
 
-<main id="main">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blog | Atualizações</title>
 
-  <!-- ======= Breadcrumbs ======= -->
-  <section id="breadcrumbs" class="breadcrumbs">
-    <div class="container">
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/favicon.png' %}" rel="icon">
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
 
-      <div class="d-flex justify-content-between align-items-center">
-        <h2>Portfolio Details</h2>
-        <ol>
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li>Portfolio Details</li>
-        </ol>
-      </div>
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
 
-    </div>
-  </section><!-- End Breadcrumbs -->
+  <link href="{% static 'assets/vendor/prism/prism.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/theme.css' %}" rel="stylesheet" />
+  <link href="{% static 'assets/css/user.css' %}" rel="stylesheet" />
 
-  <!-- ======= Portfolio Details Section ======= -->
-  <section id="portfolio-details" class="portfolio-details">
-    <div class="container">
+</head>
 
-      <div class="row gy-4">
 
-        <div class="col-lg-8">
-          <div class="portfolio-details-slider swiper">
-            <div class="swiper-wrapper align-items-center">
+<body>
 
-              <div class="swiper-slide">
-                <img src="{% static 'assets/img/portfolio/portfolio-details-1.jpg' %}" alt="">
-              </div>
-
-              <div class="swiper-slide">
-                <img src="{% static 'assets/img/portfolio/portfolio-details-2.jpg' %}" alt="">
-              </div>
-
-              <div class="swiper-slide">
-                <img src="{% static 'assets/img/portfolio/portfolio-details-3.jpg' %}" alt="">
-              </div>
-
+  <main class="main" id="top">
+    <div class="cursor-outer d-none d-md-block"></div>
+    <nav class="navbar navbar-light py-3 px-0 overflow-hidden">
+      <div class="container px-md-5">
+        <div class="row w-100 g-0 justify-content-between">
+          <div class="col-8">
+            <div class="logo">
+              <h1><a href="{% url 'home' %}">NetoWorks</a></h1>
             </div>
-            <div class="swiper-pagination"></div>
+            <div class="mt-4 d-none d-lg-block">
+              <h1 class="text-uppercase fs-lg-7 fs-5 fw-bolder text-300 lh-1 position-relative z-index-0">Blog</h1>
+              <h1
+                class="d-none d-md-block fw-bolder text-outlined fs-7 text-white lh-1 mt-n4 position-relative z-index--1">
+                Atualizações</h1>
+            </div>
+          </div>
+          <div class="col-4 d-lg-none text-end pe-0">
+            <button class="btn p-0 shadow-none text-black fs-2 d-inline-block" data-bs-toggle="offcanvas"
+              data-bs-target="#navbarOffcanvas" aria-controls="navbarOffcanvas" aria-expanded="false"
+              aria-label="Toggle offcanvas navigation"><span class="menu-bar"></span></button>
+          </div>
+          <div class="offcanvas offcanvas-end px-0" id="navbarOffcanvas" aria-labelledby="navbarOffcanvasTitle"
+            aria-hidden="true">
+            <div class="offcanvas-header justify-content-end">
+              <h5 class="visually-hidden offcanvas-title" id="navbarOffcanvasTitle">Menu</h5>
+              <button class="btn p-0 shadow-none text-black fs-2 d-inline text-end" type="button"
+                data-bs-dismiss="offcanvas" aria-label="Close"><span class="menu-close-bar"></span></button>
+            </div>
+            <div class="offcanvas-body px-0">
+              <div class="d-lg-flex flex-center-start gap-3 overflow-hidden">
+                <ul class="navbar-nav ms-auto fs-4 ps-6">
+                  <li class="nav-item"><a class="nav-link d-inline-block nav-text-outlined lh-1 text-white fs-5"
+                      aria-current="page" href="{% url 'home' %}">Início</a></li>
+                  <li class="nav-item"><a class="nav-link d-inline-block nav-text-outlined lh-1 text-white fs-5"
+                      aria-current="page" href="{% url 'home' %}">Sobre</a></li>
+                  <li class="nav-item"><a class="nav-link d-inline-block nav-text-outlined lh-1 text-white fs-5"
+                      aria-current="page" href="{% url 'home' %}">Serviços</a></li>
+                  <li class="nav-item"><a class="nav-link d-inline-block nav-text-outlined lh-1 text-white fs-5"
+                      aria-current="page" href="{% url 'home' %}">Portfólio</a></li>
+                  <li class="nav-item"><a class="nav-link d-inline-block nav-text-outlined lh-1 text-white fs-5"
+                      aria-current="page" href="{% url 'home' %}">Contato</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="d-none d-lg-flex justify-content-end position-relative z-index-1">
+              <div class="position-absolute absolute-centered z-index--1">
+                <h1 class="ms-2 fw-bolder text-outlined text-uppercase text-white pe-none display-1">Blog</h1>
+              </div>
+              <div class="d-flex gap-3 align-items-start"><a
+                  class="mb-0 ms-auto text-warning fs-0 fw-bold text-uppercase" href="blog.html#contact">Entre em
+                  Contato</a>
+                <ul class="navbar-nav navbar-fotogency ms-auto text-end">
+                  <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
+                      href="{% url 'home' %}">Início</a></li>
+                  <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
+                      href="{% url 'home' %}">Sobre</a></li>
+                  <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
+                      href="{% url 'home' %}">Serviços</a></li>
+                  <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
+                      href="{% url 'home' %}">Portfólio</a></li>
+                  <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
+                      href="{% url 'home' %}">Contato</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-
-        <div class="col-lg-4">
-          <div class="portfolio-info">
-            <h3>Project information</h3>
-            <ul>
-              <li><strong>Category</strong>: Web design</li>
-              <li><strong>Client</strong>: ASU Company</li>
-              <li><strong>Project date</strong>: 01 March, 2020</li>
-              <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
-            </ul>
-          </div>
-          <div class="portfolio-description">
-            <h2>This is an example of portfolio detail</h2>
-            <p>
-              Autem ipsum nam porro corporis rerum. Quis eos dolorem eos itaque inventore commodi labore quia quia.
-              Exercitationem repudiandae officiis neque suscipit non officia eaque itaque enim. Voluptatem officia
-              accusantium nesciunt est omnis tempora consectetur dignissimos. Sequi nulla at esse enim cum deserunt
-              eius.
-            </p>
-          </div>
+        <div class="row g-0 mt-4 d-lg-none">
+          <h1 class="text-uppercase ps-0 fs-lg-7 fs-5 fw-bolder text-300 lh-1 position-relative z-index-0">Blog</h1>
+          <h1
+            class="fw-bolder text-outlined ps-0 fs-lg-7 fs-sm-6 fs-5 text-white lh-1 mt-sm-n4 mt-n3 position-relative z-index--1">
+            Recent update</h1>
         </div>
-
       </div>
+    </nav>
 
+    <!-- <section> begin ============================-->
+    <section class="py-2">
+
+      <div class="container px-md-5">
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6 d-flex">
+            <div class="card border-0 mb-3"><img class="card-img-top" src="{% static 'assets/img/blogs/img1.png' %}"
+                alt="" />
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center"> <span class="fa-solid fa-circle-dot text-warning"></span>
+                  <p class="text-300 m-0 ps-1">6min read</p>
+                </div>
+                <div class="bg-warning p-2 text-center opacity-50">
+                  <p class="text-white mb-0">color and light</p>
+                </div>
+              </div>
+              <div class="mt-4">
+                <h5 class="mb-3">Simply dummy text of the printing and typesetting.</h5>
+                <p class="text-200 m-0 mb-3">By - <span class="text-300 fw-bold">Frederico giuspam</span></p>
+                <p class="mb-3">There are many variations of passages of Lorem Ipsum available, but the majority have
+                  suffered alteration in some</p>
+                <button class="btn btn-link text-warning p-0"><span class="fw-medium">Read full article</span><img
+                    class="ms-3" src="{% static 'assets/img/icons/long-arrow.png' %}" alt="" /></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex">
+            <div class="card border-0 mb-3"><img class="card-img-top" src="{% static 'assets/img/blogs/img2.png' %}"
+                alt="" />
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center"> <span class="fa-solid fa-circle-dot text-warning"></span>
+                  <p class="text-300 m-0 ps-1">6min read</p>
+                </div>
+                <div class="bg-warning p-2 text-center opacity-50">
+                  <p class="text-white mb-0">color and light</p>
+                </div>
+              </div>
+              <div class="mt-4">
+                <h5 class="mb-3">Simply dummy text of the printing and typesetting.</h5>
+                <p class="text-200 m-0 mb-3">By - <span class="text-300 fw-bold">Frederico giuspam</span></p>
+                <p class="mb-3">There are many variations of passages of Lorem Ipsum available, but the majority have
+                  suffered alteration in some</p>
+                <button class="btn btn-link text-warning p-0"><span class="fw-medium">Read full article</span><img
+                    class="ms-3" src="{% static 'assets/img/icons/long-arrow.png' %}" alt="" /></button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex">
+            <div class="card border-0 mb-3"><img class="card-img-top" src="{% static 'assets/img/blogs/img3.png' %}"
+                alt="" />
+              <div class="d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center"> <span class="fa-solid fa-circle-dot text-warning"></span>
+                  <p class="text-300 m-0 ps-1">6min read</p>
+                </div>
+                <div class="bg-warning p-2 text-center opacity-50">
+                  <p class="text-white mb-0">color and light</p>
+                </div>
+              </div>
+              <div class="mt-4">
+                <h5 class="mb-3">Simply dummy text of the printing and typesetting.</h5>
+                <p class="text-200 m-0 mb-3">By - <span class="text-300 fw-bold">Frederico giuspam</span></p>
+                <p class="mb-3">There are many variations of passages of Lorem Ipsum available, but the majority have
+                  suffered alteration in some</p>
+                <button class="btn btn-link text-warning p-0"><span class="fw-medium">Read full article</span><img
+                    class="ms-3" src="{% static 'assets/img/icons/long-arrow.png' %}" alt="" /></button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="d-flex align-items-center justify-content-center mt-3">
+            <button class="btn btn-link d-inline-block text-warning p-0 fs-1"><span class="fw-bold">See
+                all</span></button>
+          </div>
+        </div>
+      </div>
+      <!-- end of .container-->
+
+    </section>
+
+    <!-- TODO: colocar mais coisadescendo -->
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <!-- Post content-->
+          <article>
+            <!-- Post header-->
+            <header class="mb-4">
+              <!-- Post title-->
+              <h1 class="fw-bolder mb-1">Welcome to Blog Post!</h1>
+              <!-- Post meta content-->
+              <div class="text-muted fst-italic mb-2">Posted on January 1, 2023 by Start Bootstrap</div>
+              <!-- Post categories-->
+              <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+              <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+            </header>
+            <!-- Preview image figure-->
+            <figure class="mb-4"><img class="img-fluid rounded" src="https://dummyimage.com/900x400/ced4da/6c757d.jpg"
+                alt="..." /></figure>
+            <!-- Post content-->
+            <section class="mb-5">
+              <p class="fs-5 mb-4">Science is an enterprise that should be cherished as an activity of the free human
+                mind. Because it transforms who we are, how we live, and it gives us an understanding of our place in
+                the universe.</p>
+              <p class="fs-5 mb-4">The universe is large and old, and the ingredients for life as we know it are
+                everywhere, so there's no reason to think that Earth would be unique in that regard. Whether of not the
+                life became intelligent is a different question, and we'll see if we find that.</p>
+              <p class="fs-5 mb-4">If you get asteroids about a kilometer in size, those are large enough and carry
+                enough energy into our system to disrupt transportation, communication, the food chains, and that can be
+                a really bad day on Earth.</p>
+              <h2 class="fw-bolder mb-4 mt-5">I have odd cosmic thoughts every day</h2>
+              <p class="fs-5 mb-4">For me, the most fascinating interface is Twitter. I have odd cosmic thoughts every
+                day and I realized I could hold them to myself or share them with people who might be interested.</p>
+              <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there
+                because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running
+                water. It's bone dry today. Something bad happened there as well.</p>
+            </section>
+          </article>
+          <!-- Comments section-->
+          <section class="mb-5">
+            <div class="card bg-light">
+              <div class="card-body">
+                <!-- Comment form-->
+                <form class="mb-4"><textarea class="form-control" rows="3"
+                    placeholder="Join the discussion and leave a comment!"></textarea></form>
+                <!-- Comment with nested comments-->
+                <div class="d-flex mb-4">
+                  <!-- Parent comment-->
+                  <div class="flex-shrink-0"><img class="rounded-circle"
+                      src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                  <div class="ms-3">
+                    <div class="fw-bold">Commenter Name</div>
+                    If you're going to lead a space frontier, it has to be government; it'll never be private
+                    enterprise. Because the space frontier is dangerous, and it's expensive, and it has unquantified
+                    risks.
+                    <!-- Child comment 1-->
+                    <div class="d-flex mt-4">
+                      <div class="flex-shrink-0"><img class="rounded-circle"
+                          src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                      <div class="ms-3">
+                        <div class="fw-bold">Commenter Name</div>
+                        And under those conditions, you cannot establish a capital-market evaluation of that enterprise.
+                        You can't get investors.
+                      </div>
+                    </div>
+                    <!-- Child comment 2-->
+                    <div class="d-flex mt-4">
+                      <div class="flex-shrink-0"><img class="rounded-circle"
+                          src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                      <div class="ms-3">
+                        <div class="fw-bold">Commenter Name</div>
+                        When you put money directly to a problem, it makes a good headline.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- Single comment-->
+                <div class="d-flex">
+                  <div class="flex-shrink-0"><img class="rounded-circle"
+                      src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="..." /></div>
+                  <div class="ms-3">
+                    <div class="fw-bold">Commenter Name</div>
+                    When I look at the universe and all the ways the universe wants to kill us, I find it hard to
+                    reconcile that with statements of beneficence.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+        <!-- Side widgets-->
+        <div class="col-lg-4">
+          <!-- Search widget-->
+          <div class="card mb-4">
+            <div class="card-header">Search</div>
+            <div class="card-body">
+              <div class="input-group">
+                <input class="form-control" type="text" placeholder="Enter search term..."
+                  aria-label="Enter search term..." aria-describedby="button-search" />
+                <button class="btn btn-primary" id="button-search" type="button">Go!</button>
+              </div>
+            </div>
+          </div>
+          <!-- Categories widget-->
+          <div class="card mb-4">
+            <div class="card-header">Categories</div>
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-6">
+                  <ul class="list-unstyled mb-0">
+                    <li><a href="#!">Web Design</a></li>
+                    <li><a href="#!">HTML</a></li>
+                    <li><a href="#!">Freebies</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-6">
+                  <ul class="list-unstyled mb-0">
+                    <li><a href="#!">JavaScript</a></li>
+                    <li><a href="#!">CSS</a></li>
+                    <li><a href="#!">Tutorials</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Side widget-->
+          <div class="card mb-4">
+            <div class="card-header">Side Widget</div>
+            <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and
+              feature the Bootstrap 5 card component!</div>
+          </div>
+        </div>
+      </div>
     </div>
-  </section><!-- End Portfolio Details Section -->
 
-</main><!-- End #main -->
-{% endblock content %}
+  </main>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-6 text-lg-left text-center">
+          <div class="copyright">
+            &copy; Copyright <strong>Netoworks</strong>. Todos os direitos reservados
+          </div>
+          <div class="credits">
+            Github<a href="https://github.com/neto-works"> neto</a>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+            <a href="{% url 'home' %}" class="scrollto">Início</a>
+            <a href="#about" class="scrollto">Sobre</a>
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Uso</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{% static 'assets/vendor/popper/popper.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/anchorjs/anchor.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/is/is.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/fontawesome/all.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/lodash/lodash.min.js' %}"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+  <script src="{% static 'assets/vendor/prism/prism.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/js/theme.js' %}"></script>
+
+</body>
+
+</html>

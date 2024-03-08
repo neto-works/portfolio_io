@@ -11,3 +11,7 @@ urlpatterns = [
     path("blogueiros/", include(blogueiros_urls)),
     path("contas/",include('django.contrib.auth.urls')),
 ]
+
+admin.AdminSite.site_header = "Sistema de Management Network"
+admin.AdminSite.site_title = "Network"
+admin.AdminSite.index_title = "Network"
