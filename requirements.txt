@@ -3,6 +3,7 @@ astroid==3.1.0
 black==24.2.0
 cfgv==3.4.0
 click==8.1.7
+coverage==7.4.3
 dill==0.3.8
 distlib==0.3.8
 Django==5.0.2
@@ -10,6 +11,7 @@ filelock==3.13.1
 identify==2.5.35
 isort==5.13.2
 mccabe==0.7.0
+model-mommy==2.0.0
 mypy-extensions==1.0.0
 nodeenv==1.8.0
 packaging==23.2
