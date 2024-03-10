@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="Contato",
+            name="Projeto",
             fields=[
                 (
                     "id",
@@ -22,11 +22,15 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("nome", models.CharField(max_length=65)),
-                ("cidade", models.CharField(max_length=254)),
-                ("email", models.EmailField(max_length=254)),
-                ("telefone", models.CharField(max_length=50)),
+                ("titulo", models.CharField(max_length=200)),
                 ("descricao", models.TextField()),
+                (
+                    "imagem",
+                    models.ImageField(
+                        blank=True, null=True, upload_to="images/projetos/"
+                    ),
+                ),
+                ("url", models.CharField(max_length=250)),
             ],
         ),
     ]

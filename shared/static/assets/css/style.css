@@ -104,7 +104,7 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /**
-* Desktop Navigation 
+* Desktop Navigation
 */
 .navbar {
   padding: 0;
@@ -229,7 +229,7 @@ h6 {
 }
 
 /**
-* Mobile Navigation 
+* Mobile Navigation
 */
 .mobile-nav-toggle {
   color: #222222;
@@ -1594,4 +1594,7 @@ section {
 
 #footer .footer-links a:hover {
   color: #3498db;
+}
+.rounded-icon {
+  background: #3498db !important;
 }

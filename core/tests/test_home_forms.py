@@ -5,14 +5,15 @@ from apps.home.forms import ContatoForm
 class ContatoFormTest(TestCase):
     def setUp(self):
         self.data_certa = {
+            "nome": "Jonas Cabrini",
             "cidade": "São João do sabugi",
-            "email": "clodoaldo.brtp@gmail.com",
+            "email": "Jonas.brtp@gmail.com",
             "telefone": "81218541",
             "descricao": "Um textão",
         }
         self.data_errada = {
             "cidade": "São João do sabugi",
-            "email": "clodoaldo.brtp",
+            "email": "Jonas.brtp",
             "telefone": "81218541",
             "descricao": "Um textão",
         }
@@ -24,7 +25,7 @@ class ContatoFormTest(TestCase):
 
     def test_fields_exists(self):
         self.form = ContatoForm(self.data_certa)
-        self.assertEquals(len(self.form.fields), 4)
+        self.assertEquals(len(self.form.fields), 5)
 
     def test_if_the_form_is_filled_out_correctly_if_it_is_valid(self):
         self.form = ContatoForm(self.data_certa)

@@ -1,8 +1,9 @@
 [run]
 source = .
 
-omit = 
+omit =
     */__init__.py
+    */venv/*
     */settings.py
     */manage.py
     */wsgi.py

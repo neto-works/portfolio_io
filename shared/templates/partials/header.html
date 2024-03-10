@@ -13,7 +13,9 @@
                 <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
 
                 <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
-                <li><a class="getstarted scrollto btn py-1" href="/contas/login">login</a></li>
+                {% if request.path == '/' %}
+                    <li><a class="getstarted scrollto btn py-1" href="/contas/login">login</a></li>
+                {% endif %}
             </ul>
             <i class="bi bi-list mobile-nav-toggle"></i>
         </nav><!-- .navbar -->

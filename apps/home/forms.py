@@ -1,8 +1,15 @@
 from django import forms
+from .models import Contato #
 
 
-class ContatoForm(forms.Form):
-    cidade = forms.CharField(label="Cidade", max_length=254)
-    email = forms.EmailField(label="E-mail", max_length=254)
-    telefone = forms.CharField(label="Telefone", max_length=50)
-    descricao = forms.CharField(label="Message", widget=forms.Textarea())
+class ContatoForm(forms.ModelForm):
+    class Meta:
+        model = Contato  # Substitua Contato pelo nome correto do seu modelo
+        fields = ['nome','cidade','email','telefone','descricao']
+
+    def save(self, commit=True):
+        instancia = super(ContatoForm, self).save(commit=False)
+        # Faça quaisquer modificações adicionais na instância, se necessário
+        if commit:
+            instancia.save()
+        return instancia
