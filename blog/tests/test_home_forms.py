@@ -30,4 +30,3 @@ class ContatoFormTest(TestCase):
     def test_if_the_form_is_filled_out_correctly_if_it_is_valid(self):
         self.form = ContatoForm(self.data_certa)
         self.assertTrue(self.form.is_valid)
-

@@ -19,9 +19,13 @@ class HomeModelTest(TestCase):
 
     def test_contato_title_raises_error_if_title_has_more_than_65_chars(self):
         # passamos 1 id eo restodas informações
-        contato = Contato(1,self.data_mock)
+        contato = Contato(1, self.data_mock)
         contato.save()
 
-        quant_carc: bool = True if len(contato.nome) <= 65 else False # resultado_se_verdadeiro if condição else resultado_se_falso
-        contato_exist_in_db: bool = True if (contato.nome != self.data_mock["nome"]) else False
-        self.assertEquals(contato_exist_in_db,quant_carc)
+        quant_carc: bool = (
+            True if len(contato.nome) <= 65 else False
+        )  # resultado_se_verdadeiro if condição else resultado_se_falso
+        contato_exist_in_db: bool = (
+            True if (contato.nome != self.data_mock["nome"]) else False
+        )
+        self.assertEquals(contato_exist_in_db, quant_carc)

@@ -273,17 +273,17 @@
           <article>
             <!-- Post header-->
             <header class="mb-4">
-              <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
+              <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Develop</a>
               <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
             </header>
             <!-- Post image figure-->
-            <figure class="mb-0"><img class="img-fluid rounded" src="{{ post.imagem }}"
+            <figure class="mb-0"><img class="img-fluid rounded" src="{{ post.imagem.url }}"
                 alt="..." /></figure>
             <!-- Post content-->
             <section class="mb-1">
               <h2 class="fw-bolder mb-4 mt-0">{{ post.titulo }}</h2>
-              <p class="fs-1 mb-4">{{ post.titulo }}</p>
               <p class="fs-1 mb-4">{{ post.descricao}}</p>
+              <p><i>escrito por: _</i>{{ post.blogueiro_id }}</p>
             </section>
           </article>
         </div>

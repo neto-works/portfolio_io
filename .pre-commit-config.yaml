@@ -3,7 +3,7 @@ repos:
     hooks:
       - id: pylint
         name: pylint
-        entry: pylint *.py
+        entry:pylint --ignore=__init__.py,_initial.py *.py
         language: system
         types: [python]
         args: [
@@ -12,6 +12,13 @@ repos:
           "--rcfile=.pylintrc", # Link to your config file
           "--load-plugins=pylint.extensions.docparams", # Load an extension
         ]
+  - repo: local
+    hooks:
+      - id:black
+        name:black
+        entry: black --exclude=__init__.py,_initial.py,settings.py,wsgi.py,asgi.py,venv/,shared/,*. .
+        language: system
+        types: [python]
   - repo: local
     hooks:
       - id: requirements
