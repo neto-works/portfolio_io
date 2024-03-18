@@ -11,6 +11,7 @@ model-mommy==2.0.0
 mypy-extensions==1.0.0
 packaging==24.0
 pathspec==0.12.1
+phonenumbers==8.13.32
 pillow==10.2.0
 platformdirs==4.2.0
 pylint==3.1.0
