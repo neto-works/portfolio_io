@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser, BaseUserManager
+from phonenumber_field.modelfields import PhoneNumberField
 
 
 class UsuarioManager(BaseUserManager):
@@ -31,8 +32,8 @@ class UsuarioManager(BaseUserManager):
 
 class CustomUsuarios(AbstractUser):
     email = models.EmailField("E-mail", unique=True, max_length=254)
-    fone = models.CharField("Telefone", max_length=15)
-    is_staff = models.BooleanField("Membro da equipe", default=True)
+    fone  = PhoneNumberField(null=False, blank=False, unique=True)
+    is_staff = models.BooleanField(default=True)
 
     USERNAME_FIELD = "email"
     REQUIRED_FIELDS = ["first_name", "last_name", "fone"]

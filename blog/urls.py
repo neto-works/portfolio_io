@@ -17,6 +17,6 @@ urlpatterns = [
     path("register/",include(usuario_urls)),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
 
-admin.AdminSite.site_header = "Sistema de Management Network"
-admin.AdminSite.site_title = "Network"
-admin.AdminSite.index_title = "Network"
+admin.AdminSite.site_header = "Manager TecSanja"
+admin.AdminSite.site_title = "TecSanja"
+admin.AdminSite.index_title = "Gerenciamento do site"
