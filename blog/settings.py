@@ -23,6 +23,7 @@ ALLOWED_HOSTS = ["tecsanja.com", "*"]
 INSTALLED_APPS = [
     "apps.usuario",
     "phonenumber_field",
+    "semantic_admin",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
