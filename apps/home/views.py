@@ -2,13 +2,16 @@ from django.shortcuts import render, redirect
 from django.views import View
 from .forms import ContatoForm
 from .models import Contato
+from apps.projeto.models import Projeto
 
 
 class HomeView(View):
 
     def get(self, request):
         form = ContatoForm()
-        context = {"form_contato": form}
+        projetos = Projeto.objects.all()
+
+        context = {"form_contato": form, "projetos": projetos}
         return render(request, "home/home.html", context)
 
     def post(self, request):
