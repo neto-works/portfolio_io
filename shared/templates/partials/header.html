@@ -7,12 +7,11 @@
 
         <nav id="navbar" class="navbar">
             <ul>
-                <li><a class="nav-link scrollto" href="#about">Sobre</a></li>
-                <li><a class="nav-link scrollto" href="#services">Serviços</a></li>
-                <li><a class="nav-link scrollto " href="#portfolio">Portfólio</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'home'%}#about">Sobre</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'home'%}#services">Serviços</a></li>
+                <li><a class="nav-link scrollto " href="{% url 'home'%}#portfolio">Portfólio</a></li>
                 <li><a class="nav-link scrollto" href="{% url 'blog' %}">Blog</a></li>
-
-                <li><a class="nav-link scrollto" href="#contact">Contato</a></li>
+                <li><a class="nav-link scrollto" href="{% url 'home'%}#contact">Contato</a></li>
                 {% if request.path == '/' %}
                     <li><a class="getstarted scrollto btn py-1" href="/contas/login">login</a></li>
                 {% endif %}

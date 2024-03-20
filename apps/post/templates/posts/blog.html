@@ -81,18 +81,19 @@
                 <h1 class="ms-2 fw-bolder text-outlined text-uppercase text-white pe-none display-1">Blog</h1>
               </div>
               <div class="d-flex gap-3 align-items-start">
-                <a class="mb-0 ms-auto text-secondary fs-0 fw-bold text-uppercase" href="#categorias"> Pesquise por Categorias</a>
+                <a class="mb-0 ms-auto text-secondary fs-0 fw-bold text-uppercase" href="#categorias"> Pesquise por
+                  Categorias</a>
                 <ul class="navbar-nav navbar-fotogency ms-auto text-end">
                   <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
                       href="{% url 'home' %}">Início</a></li>
-                  <!-- <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
-                      href="{% url 'home' %}">Sobre</a></li>
                   <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
-                      href="{% url 'home' %}">Serviços</a></li>
+                      href="{% url 'home' %}#about">Sobre</a></li>
                   <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
-                      href="{% url 'home' %}">Portfólio</a></li>
+                      href="{% url 'home' %}#services">Serviços</a></li>
                   <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
-                      href="{% url 'home' %}">Contato</a></li> -->
+                      href="{% url 'home' %}#portfolio">Portfólio</a></li>
+                  <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
+                      href="{% url 'home' %}#contact">Contato</a></li>
                 </ul>
               </div>
             </div>
@@ -107,7 +108,6 @@
       </div>
     </nav>
 
-    <!-- <section> begin ============================-->
     <section class="py-2">
 
       <div class="container px-md-5">
@@ -117,17 +117,16 @@
                 alt="" />
               <div class="d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center"> <span class="fa-solid fa-circle-dot text-secondary"></span>
-                  <p class="text-300 m-0 ps-1">6min read</p>
+                  <p class="text-300 m-0 ps-1">16min read</p>
                 </div>
                 <div class="bg-secondary p-2 text-center opacity-50">
                   <p class="text-white mb-0">color and light</p>
                 </div>
               </div>
               <div class="mt-4">
-                <h5 class="mb-3">Simply dummy text of the printing and typesetting.</h5>
-                <p class="text-200 m-0 mb-3">By - <span class="text-300 fw-bold">Frederico giuspam</span></p>
-                <p class="mb-3">There are many variations of passages of Lorem Ipsum available, but the majority have
-                  suffered alteration in some</p>
+                <h5 class="mb-3">Uma breve amostra de utilização do método AHP para auxiliar na tomada de decisão.</h5>
+                <p class="text-200 m-0 mb-3">By - <span class="text-300 fw-bold">_@neto</span></p>
+                <p class="mb-3">Em construção...</p>
                 <button class="btn btn-link text-secondary p-0"><span class="fw-medium">Read full article</span><img
                     class="ms-3" src="{% static 'assets/img/icons/long-arrow.png' %}" alt="" /></button>
               </div>
@@ -145,10 +144,9 @@
                 </div>
               </div>
               <div class="mt-4">
-                <h5 class="mb-3">Simply dummy text of the printing and typesetting.</h5>
-                <p class="text-200 m-0 mb-3">By - <span class="text-300 fw-bold">Frederico giuspam</span></p>
-                <p class="mb-3">There are many variations of passages of Lorem Ipsum available, but the majority have
-                  suffered alteration in some</p>
+                <h5 class="mb-3">Uma breve  amostra de como usar  Machine Learning para nos auxiliar a prever  preço de imóveis.</h5>
+                <p class="text-200 m-0 mb-3">By - <span class="text-300 fw-bold">_@neto</span></p>
+                <p class="mb-3">Em construção ...</p>
                 <button class="btn btn-link text-secondary p-0"><span class="fw-medium">Read full article</span><img
                     class="ms-3" src="{% static 'assets/img/icons/long-arrow.png' %}" alt="" /></button>
               </div>
@@ -178,35 +176,33 @@
         </div>
         <div class="row">
           <div class="d-flex align-items-center justify-content-center mt-3">
-            <button class="btn btn-link d-inline-block text-secondary p-0 fs-1"><span class="fw-bold">See
-                all</span></button>
+            <button class="btn btn-link d-inline-block text-secondary p-0 fs-1"><span class="fw-bold">Ver Outros</span></button>
           </div>
         </div>
       </div>
-      <!-- end of .container-->
+
 
     </section>
-
-    <!-- TODO: colocar mais coisadescendo -->
     <div class="container mt-5">
 
       <div class="row">
         <div class="col-lg-8">
           <article>
-            <!-- Post header-->
+
             <header class="mb-4">
-              <!-- Post title-->
+
               <h1 class="fw-bolder mb-1">Bem vindo aos posts do nosso Blog</h1>
-              <!-- Post meta content-->
-              <div class="text-muted fst-italic mb-2">Posted on January 1, 2023 by Start Bootstrap</div>
-              <!-- Post categories-->
-              <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Design</a>
-              <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+
+              <div class="text-muted fst-italic mb-2">Posted on January 1, 2023</div>
+
+              <a class="badge bg-secondary text-decoration-none link-light" href="#!">IA</a>
+              <a class="badge bg-secondary text-decoration-none link-light" href="#!">Governo</a>
             </header>
-            <!-- Post image figure-->
-            <figure class="mb-0"><img class="img-fluid rounded" src="https://classic.exame.com/wp-content/uploads/2023/06/GettyImages-1258297557.jpg?quality=70&strip=info&w=1024"
+
+            <figure class="mb-0"><img class="img-fluid rounded"
+                src="https://classic.exame.com/wp-content/uploads/2023/06/GettyImages-1258297557.jpg?quality=70&strip=info&w=1024"
                 alt="..." /></figure>
-            <!-- Post content-->
+
             <section class="mb-1">
               <h2 class="fw-bolder mb-4 mt-0">Governo dos EUA fecha acordo com gigantes da tecnologia para garantir
                 segurança no uso de IA</h2>
@@ -223,9 +219,7 @@
             </section>
           </article>
         </div>
-        <!-- Side widgets-->
         <div class="col-lg-4" id="categorias">
-          <!-- Search widget-->
           <div class="card mb-4">
             <div class="card-header">Search</div>
             <div class="card-body">
@@ -236,7 +230,6 @@
               </div>
             </div>
           </div>
-          <!-- Categories widget-->
           <div class="card mb-4">
             <div class="card-header">Categories</div>
             <div class="card-body">
@@ -258,7 +251,6 @@
               </div>
             </div>
           </div>
-          <!-- Side widget-->
           <div class="card mb-4">
             <div class="card-header">Side Widget</div>
             <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and
@@ -268,18 +260,16 @@
       </div>
       {% for post in posters %}
       <div class="row">
-        <!-- Post -->
         <div class="col-lg-8">
           <article>
-            <!-- Post header-->
             <header class="mb-4">
-              <a class="badge bg-secondary text-decoration-none link-light" href="#!">Web Develop</a>
-              <a class="badge bg-secondary text-decoration-none link-light" href="#!">Freebies</a>
+              {% for categ in post.categorias %}
+              <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ categ.titulo }}</a>
+              {% endfor %}
+              <br /><br />
+              <div class="text-muted fst-italic mb-2">Posted on January 1, 2023</div>
             </header>
-            <!-- Post image figure-->
-            <figure class="mb-0"><img class="img-fluid rounded" src="{{ post.imagem.url }}"
-                alt="..." /></figure>
-            <!-- Post content-->
+            <figure class="mb-0"><img class="img-fluid rounded" src="{{ post.imagem }}" alt="..." /></figure>
             <section class="mb-1">
               <h2 class="fw-bolder mb-4 mt-0">{{ post.titulo }}</h2>
               <p class="fs-1 mb-4">{{ post.descricao | safe }}</p>
