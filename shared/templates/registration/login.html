@@ -10,7 +10,7 @@
                 class="img-fluid" alt="Sample image">
             </div>
             <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-              <form action="{% url 'login' %}" method="POST">
+              <form action="{% url 'login' %}" method="POST" autocomplete="off">
                 {% csrf_token %}
                 <!-- Email input -->
                 <div class="form-outline mb-4">
@@ -27,13 +27,6 @@
                 </div>
 
                 <div class="d-flex justify-content-between align-items-center">
-                  <!-- Checkbox -->
-                  <div class="form-check mb-0">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-                    <label class="form-check-label" for="form2Example3">
-                      Relembre me
-                    </label>
-                  </div>
                   <a href="#!" class="text-body">Redefinr senha?</a>
                 </div>
 

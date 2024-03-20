@@ -1,6 +1,7 @@
 from pathlib import Path
 from decouple import config
 import os
+from django.contrib.messages import constants
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -156,3 +157,11 @@ LOGIN_REDIRECT_URL = "admin:index"  # fez login vai para
 LOGOUT_REDIRECT_URL = "home"  # deslogou vai para
 
 AUTH_USER_MODEL = "usuario.CustomUsuarios"
+
+MESSAGE_TAGS = {
+    constants.DEBUG:'alert alert-danger',
+    constants.SUCCESS:'alert alert-success',
+    constants.INFO:'alert alert-info',
+    constants.WARNING:'alert alert-warning',
+    constants.ERROR:'alert alert-warning',
+}

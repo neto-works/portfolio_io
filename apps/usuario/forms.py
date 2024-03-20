@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from .models import CustomUsuarios
+from django import forms
 
 
 class CustomUsuariosCreateForm(UserCreationForm):
@@ -7,6 +8,10 @@ class CustomUsuariosCreateForm(UserCreationForm):
         model = CustomUsuarios
         fields = ('first_name', 'last_name','username','fone')
         labels = {'username': 'Username/E-mail'}
+        widgets = {
+            'fone': forms.TextInput(attrs={'placeholder': 'ex: +5584981117731'}),
+            'username': forms.TextInput(attrs={'placeholder': 'exemplo@gmail.com'}),
+        }
 
     def save(self, commit=True):
         user = super().save(commit=False)
