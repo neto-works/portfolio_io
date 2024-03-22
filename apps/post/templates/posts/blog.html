@@ -144,7 +144,8 @@
                 </div>
               </div>
               <div class="mt-4">
-                <h5 class="mb-3">Uma breve  amostra de como usar  Machine Learning para nos auxiliar a prever  preço de imóveis.</h5>
+                <h5 class="mb-3">Uma breve amostra de como usar Machine Learning para nos auxiliar a prever preço de
+                  imóveis.</h5>
                 <p class="text-200 m-0 mb-3">By - <span class="text-300 fw-bold">_@neto</span></p>
                 <p class="mb-3">Em construção ...</p>
                 <button class="btn btn-link text-secondary p-0"><span class="fw-medium">Read full article</span><img
@@ -176,47 +177,46 @@
         </div>
         <div class="row">
           <div class="d-flex align-items-center justify-content-center mt-3">
-            <button class="btn btn-link d-inline-block text-secondary p-0 fs-1"><span class="fw-bold">Ver Outros</span></button>
+            <button class="btn btn-link d-inline-block text-secondary p-0 fs-1"><span class="fw-bold">Ver
+                Outros</span></button>
           </div>
         </div>
       </div>
-
-
     </section>
     <div class="container mt-5">
-
       <div class="row">
         <div class="col-lg-8">
           <article>
-
-            <header class="mb-4">
-
-              <h1 class="fw-bolder mb-1">Bem vindo aos posts do nosso Blog</h1>
-
-              <div class="text-muted fst-italic mb-2">Posted on January 1, 2023</div>
-
-              <a class="badge bg-secondary text-decoration-none link-light" href="#!">IA</a>
-              <a class="badge bg-secondary text-decoration-none link-light" href="#!">Governo</a>
+            <header class="mt-4">
+              <h1 class="fw-bolder">Bem vindo aos posts do nosso Blog</h1>
             </header>
+            <p class="mt-5">Nosso blog é o seu destino definitivo para tudo relacionado à tecnologia. Aqui, mergulhamos
+              nas últimas
+              tendências, inovações e descobertas que moldam o mundo digital de hoje e de amanhã. Quer você seja um
+              aficionado por gadgets, um entusiasta de software ou simplesmente curioso sobre o futuro da tecnologia,
+              nós temos o conteúdo que você precisa.</p>
 
-            <figure class="mb-0"><img class="img-fluid rounded"
-                src="https://classic.exame.com/wp-content/uploads/2023/06/GettyImages-1258297557.jpg?quality=70&strip=info&w=1024"
-                alt="..." /></figure>
+            <b>
+              <p>O que você pode esperar encontrar em nosso blog:</p>
+            </b>
+            <p>
+              Notícias Tecnológicas Atualizadas: Mantenha-se atualizado com as últimas notícias do mundo da tecnologia.
+              De lançamentos de novos dispositivos a avanços científicos inovadores, cobrimos tudo para mantê-lo
+              informado.</p>
+            <p>Guias e Tutoriais Práticos: Quer aprender a dominar uma nova ferramenta ou aproveitar ao máximo seu
+              dispositivo atual? Nossos guias e tutoriais práticos fornecem instruções passo a passo para ajudá-lo a se
+              tornar um mestre da tecnologia.</p>
 
-            <section class="mb-1">
-              <h2 class="fw-bolder mb-4 mt-0">Governo dos EUA fecha acordo com gigantes da tecnologia para garantir
-                segurança no uso de IA</h2>
-              <p class="fs-1 mb-4">A Casa Branca afirmou nesta sexta-feira, 21, que chegou a um acordo com grandes
-                empresas de tecnologia para criar novas medidas de controle e fiscalização ao uso da inteligência
-                artificial (IA). O anúncio vem após reunião do governo dos EUA com sete empresas líderes em IA: Amazon,
-                Anthropic, Alphabet (Google), Inflection, Meta, Microsoft e OpenAI.</p>
-              <p class="fs-1 mb-4">De acordo com a nota da Casa Branca, as empresas concordaram em respeitar mecanismos
-                para garantir que os produtos sejam seguros antes de apresentá-los ao público, além de criar ferramentas
-                para identificar conteúdos produzidos por IA, como marcas d'água e também desenvolver e investir em
-                segurança cibernética para proteger dados dos cidadãos.</p>
-              <p class="fs-1 mb-4">O texto afirma que as sete empresas também se comprometeram em facilitar a realização
-                de auditorias externas em seus sistemas para aperfeiçoar os produtos e encontrar vulnerabilidades.</p>
-            </section>
+            <b>
+              <p>Por que nos escolher?</p>
+            </b>
+
+            <p> Informação Confiável: Nosso compromisso é fornecer informações precisas e confiáveis, para que você
+              possa
+              confiar em nós para orientá-lo no mundo em rápida evolução da tecnologia.</p>
+
+            <p>Paixão pela Tecnologia: Somos apaixonados por tudo relacionado à tecnologia e essa paixão transparece em
+              cada artigo que escrevemos. Estamos aqui para compartilhar nossa empolgação e conhecimento com você. </p>
           </article>
         </div>
         <div class="col-lg-4" id="categorias">
@@ -236,30 +236,26 @@
               <div class="row">
                 <div class="col-sm-6">
                   <ul class="list-unstyled mb-0">
-                    <li><a href="#!">Web Design</a></li>
-                    <li><a href="#!">HTML</a></li>
-                    <li><a href="#!">Freebies</a></li>
+                    {% for categoria in categorias %}
+                    <li><a href="#!">{{ categoria.titulo }}</a></li>
+                    {% endfor %}
                   </ul>
                 </div>
                 <div class="col-sm-6">
                   <ul class="list-unstyled mb-0">
-                    <li><a href="#!">JavaScript</a></li>
-                    <li><a href="#!">CSS</a></li>
+                    <li><a href="#!">Tecnologia</a></li>
                     <li><a href="#!">Tutorials</a></li>
+                    <li><a href="#!">Novo</a></li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-          <div class="card mb-4">
-            <div class="card-header">Side Widget</div>
-            <div class="card-body">You can put anything you want inside of these side widgets. They are easy to use, and
-              feature the Bootstrap 5 card component!</div>
-          </div>
         </div>
       </div>
-      {% for post in posters %}
+
       <div class="row">
+        {% for post in posts_paginados %}
         <div class="col-lg-8">
           <article>
             <header class="mb-4">
@@ -267,21 +263,21 @@
               <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ categ.titulo }}</a>
               {% endfor %}
               <br /><br />
-              <div class="text-muted fst-italic mb-2">Posted on January 1, 2023</div>
+              <div class="text-muted fst-italic mb-2">Postado em {{ post.created_at}}</div>
             </header>
             <figure class="mb-0"><img class="img-fluid rounded" src="{{ post.imagem }}" alt="..." /></figure>
             <section class="mb-1">
-              <h2 class="fw-bolder mb-4 mt-0">{{ post.titulo }}</h2>
+              <h1 class="fw-bolder mb-4 mt-0">{{ post.titulo }}</h1>
               <p class="fs-1 mb-4">{{ post.descricao | safe }}</p>
               <p><i>escrito por: _</i>{{ post.blogueiro_id }}</p>
             </section>
           </article>
         </div>
-
+        {% endfor %}
       </div>
-      {% endfor %}
 
     </div>
+    {% include 'partials/pagination.html' %}
   </main>
 
   <footer id="footer">
