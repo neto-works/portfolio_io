@@ -1,6 +1,8 @@
+import datetime
 from django.conf import settings
 from django.http import HttpResponseForbidden
 from django.utils import timezone
+from django.utils.timezone import make_aware
 
 class RequestCountMiddleware:
     def __init__(self, get_response):
@@ -14,8 +16,8 @@ class RequestCountMiddleware:
 
         if 'request_count_expiration' in request.session:
             expiration_time_str = request.session['request_count_expiration']
-            expiration_time = datetime.datetime.strptime(expiration_time_str, '%Y-%m-%d %H:%M:%S.%f')
-            if expiration_time < timezone.now():
+            expiration_time = make_aware(datetime.datetime.strptime(expiration_time_str, '%Y-%m-%d %H:%M:%S.%f'))
+            if expiration_time < timezone.localtime(timezone.now()):
                 del request.session['request_count']
                 del request.session['request_count_expiration']
 
