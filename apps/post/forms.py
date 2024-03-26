@@ -9,3 +9,6 @@ class PostForm(forms.ModelForm):
         widgets = {
             'descricao': forms.Textarea(attrs={'class': 'form-control', 'rows': 5}),  # Defina a classe CSS e as propriedades desejadas
         }
+
+class AHPfForm():
+    ...

@@ -1,0 +1,175 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<main id="main">
+
+  <!-- ======= Breadcrumbs Section ======= -->
+  <section class="breadcrumbs">
+    <div class="container">
+
+      <div class="d-flex justify-content-between align-items-center">
+        <h1>Método AHP</h1>
+        <ol>
+          <li><a href="{% url 'home' %}">Inicio</a></li>
+          <li>Proximo Método</li>
+        </ol>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="inner-page">
+    <div class="container">
+      <p>
+        É um método multicritério de auxílio à tomada de decisão para decisões complexas. </p>
+      <p>É importante ressaltar que vamos explorar principalmente a aplicação prática deste método, focando na sua
+        implementação através de código. Embora possamos mencionar conceitos matemáticos para fundamentar o
+        entendimento, não iremos nos aprofundar em demonstrações ou cálculos para justificar os algoritmos envolvidos.
+      </p>
+      <p>Então vamos adiante, ele é baseado em matemática e Psicologia e foi desenvolvido em 1970 por um Professor
+        chamado <a href="https://en.wikipedia.org/wiki/Thomas_L._Saaty" target="_blank">Thomas Saaty</a>. O mesmo
+        é utilizado pelo mundo todo e possui uma ampla variedade de situações, áreas e problemas em que podem ser
+        aplicados:
+      </p>
+      <ul>
+        <li>Em Governo</li>
+        <li>Em Pequenos Negócios</li>
+        <li>Na Indústrias</li>
+        <li>Na saúde</li>
+        <li>e na Educação</li>
+      </ul>
+
+      <p>
+        Mais e ai, existe um padrão de problemas onde podemos aplicar? .
+      </p>
+      <p>Então, essas áreas citadas acima são somente
+        rótulos comuns
+        pois a maioria delas exigem <i>" uma certa prestação de contas por parte de quem resolveu o problema, como
+          resolveu ou em casos de agravamento, o que foi feito de errado que ocasionou "</i>, mas basicamente podemos
+        aplicar em
+        quaisquer que sejam os
+        problemas encontrados no dia dia e nos
+        quais necessitem de <i>"justificação racional e prova para uma tomada de decisão"</i> :
+      </p>
+      <ul>
+        Vamos a alguns problemas para melhor enxergarmos a evidência do padrão:
+        <li> Quanto necessário tomada de decisão em uma empresa, em casos de afastamento por motivo
+          x de um gestor x que era responsável por gerenciar finanças, devemos achar uma
+          forma de “garantir a melhor escolha” de um funcionário obedecendo critérios como trabalhar a muito tempo
+          na empresa, que conheça o dia a dia, seja do setor de finanças etc. Porém, ainda que baseado em critérios, não
+          possuímos uma forma quantitativa de comparar e
+          comprovar a melhor escolha e é justamente essa comprovação que o AHP nos
+          proporciona.</li>
+        <li>Compra de Veículos: sempre há quem compre um veículo pensando que não está se
+          baseando em nenhum critério, apenas por questão de ser novo no mercado, porém
+          isso em se ja é um critério e que deve ser bem respeitado tendo em vista o fator
+          manutenção do veículo, consumo por quilometragem, preço, capacidade de carga e etc, são outros muitos
+          critérios.
+          Podemos escrever mil linhas de texto explicando sobre critérios importantes para
+          serem considerados na compra de um carro, porém, novamente chegamos a um
+          denominador comum, "como comprovar que diante da utilização de apenas 3 critérios
+          por exemplo dentro de 1000 carros que obedecem esses critérios" 1 é a melhor
+          escolha a ser feita para comprar? Novamente o método AHP pode nos proporcionar
+          esse auxílio, e com ele podemos também a documentação da decisão.
+        </li>
+      </ul>
+      <p>
+        Motivos para utilizar o método AHP:
+      <ul>
+        <li>Auxilia na tomada de decisão</li>
+        <li>Quando necessário justificar uma escolha</li>
+        <li>Quando necessário dar credibilidade a essa escolha, usando método científico</li>
+      </ul>
+      </p>
+      <p>
+        Passos necessários para construção e compreensão/uso do método AHP:
+      </p>
+      <ol>
+        <li><b>Fazer uma construção da hierarquia do problema:</b></li>
+        <p>
+          Decompor nosso problemas em uma hierarquia de subproblemas, aqui uma menção ao famoso dividir para conquistar
+          e outras técnicas de resolução. Mas basicamente é uma maneira melhor de se definir e enxergar
+          O objetivo, os critérios, os subcritérios e as alternativas para solução.
+        </p>
+        <img class="img-fluid" src="{% static 'assets/img/ahp/primeira_fase.jpeg' %}" alt="">
+        <p>
+          Aqui ainda é importante ressaltar que para cada subcritério devemos fazer uma avaliação, usando as
+          alternativas.
+        </p>
+        <p>
+          Outro fato que devemos considerar é a disposição da diagonal principal ser 1, e algumas literaturas remetem a
+          igualdade quanto ao confronto dos dados das alternativas e isso por si só já justifica mas se você for
+          matematicamente desconfiado saiba que a existência da diagonal ser 1
+          é para garantir que exista pelo menos 1 solução autovalor correspondente à alternativa.
+        </p>
+        <p>
+          Vamos ver mais a frente que o nome dado aos cálculos executados sobre essas matrizes (cada critério, ou
+          subcritério), que podem
+          ser muitas dependendo do problema é denominado <i>cálculo da prioridade local</i>, logo você vai ver muito
+          isso ou
+          até mesmo no código quando nos referirmos a calcular prioridade local é justamente o que vamos fazer, um
+          loop percorrendo cada subcritério, calculando cada matriz correspondente. Mas antes disso devemos saber como
+          preencher essas matrizes de (subcritérios ou em casos mais simples, apenas critérios):
+        </p>
+        <li><b>Preenchendo as Matrizes, fazendo a avaliação das alternativas.</b></li>
+        <p>
+          Fazer as <i>comparações das alternativas</i> para <i>"o critério ou subcritério em questão"</i>, umas com as
+          outras em pares, pode ser complicado e gerar erros, ou inconsistência no resultado. A avaliação pode ser feita
+          de 2 formas:
+        <ul>
+          <li>Quantitativa ( dependendo do problema teremos que analisar e realizar cálculos sobre dados
+            muitas vezes em excel para noção de o quanto uma alternativa A é mais barata ou cara do que alternativa B
+            por
+            exemplo) </li>
+          <li> ou
+            Qualitativa, para esse tipo de avaliação devemos usar a escala de Saat que vai de 1 a 9 onde damos
+            notas de preferência as alternativas</li>
+        </ul>
+        <img class="img-fluid" src="{% static 'assets/img/ahp/segunda_fase2.jpeg' %}" alt="">
+        </p>
+        <p>Ainda devemos Obedecer a lei de reciprocidade entre alternativas, isso significa que se descrevermos que
+          alternativa_2 <code>[0][1]</code>
+          é 6x melhor que a alternativa_1, consequentemente o valor recíproco a ela, alternativa_1 <code>[1][0]</code>
+          deverá ter
+          valor 1/6 ou seja a alternativa_1 é 6x pior que a alternativa_2, mantendo-se a coerência e além disso devemos
+          começar o preenchimento e
+          Comparação das alternativas da esquerda para direita na 1ª linha.
+        </p>
+        <img class="img-fluid" src="{% static 'assets/img/ahp/segunda_fase.jpeg' %}" alt="">
+        <br>
+        <br>
+        <li><b>Calcular as prioridades locais:</b> </li>
+        <p>
+          No AHP Podemos calcular as prioridades locais utilizando 3 métodos, o que implica nisso basicamente é a
+          necessidade do problema e a precisão do resultado. Podemos fazer pelo método aproximado (método da soma e
+          normalização) , pelo método geométrico (método da média geométrica) ou pelo método dos autovalores. Nesses
+          métodos são comumente utilizados de operações matemáticas entre linhas ou colunas, soma multiplicação,
+          normalização no geral.
+        </p>
+        <li><b>Calcular a o índice de consistência das matrizes: </b></li>
+        <p>
+          Para ver se cada matriz possui uma coerência com o que é expressado nas preferências, calculamos o índice de
+          inconsistência no qual o criador do método define que deve ser menor que 10% para cada matriz representante de
+          critério ou subcritério.
+        </p>
+        <li><b>Último passo, calcular as prioridades globais:</b> </li>
+        <p>
+          Onde damos as alternativas pesos aos critérios, serão multipĺicados pelas prioridades locais formando a
+          prioridade global onde cada critério influencia no resultado final do AHP.
+        </p>
+      </ol>
+      <h3>Quanto ao ambiente de utilização</h3>
+      <p>Bem, tenha em mente que os exemplos aqui citados são pequenos e simples, usados para
+        demonstração. Problemas reais são mais complexos, com muitos critérios e alternativas. Isso significa que
+        soluções
+        detalhadas geralmente não são usadas na web devido a limitações computacionais. Ecossistemas locais, como
+        aplicativos de desktop, são mais adequados para lidar com essa complexidade.</p>
+      <h4>Utilização do mesmo</h4>
+      <p>Agora que você já sabe como funciona o AHP vamos a demonstração de um pequeno exemplo da utilização do mesmo
+        para decidir qual carro comprar, considerando os critérios: </p>
+    </div>
+  </section>
+
+
+</main>
+{% endblock content %}

@@ -168,6 +168,6 @@ MESSAGE_TAGS = {
     constants.ERROR:'alert alert-warning',
 }
 
-MAX_REQUESTS_PER_IP = 50  # Altere o número conforme necessário
+MAX_REQUESTS_PER_IP = 1500000  # Altere o número conforme necessário
 BLOCKED_IPS = []
 REQUEST_COUNT_EXPIRATION = timedelta(days=1)  # Duração da contagem de requisições
