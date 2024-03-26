@@ -4,9 +4,9 @@ from django.views import View
 from .models import Post
 from django.core.paginator import Paginator
 from apps.categoria.models import Categoria
-from .utils.meu import AHP
-from matplotlib import pyplot as plt
-from .forms import AHPfForm
+# from .utils.meu import AHP
+# from matplotlib import pyplot as plt
+# from .forms import AHPfForm
 
 
 def blog_view(request):
@@ -75,58 +75,57 @@ def make_pagination_range(page_range, links_mostrados, qual_pagina_esta):
         "ultima_pagina_na_telah": stop_range < total_page,
     }
 
-
 class AHPView(View):
 
     def get(self, request):
-        form = AHPfForm()
-        context = {"form_contato": form}
+        # form = AHPfForm()
+        # context = {"form_contato": form}
         return render(request, "posts/ahp.html")
 
-    def post(self, request):
-        exemplo = AHP(metodo='',precisao=3,alternativas=['Tom', 'Dick', 'Harry'],
-        criterios=['Experiência', 'Educação', 'Carisma', 'Idade'],subcriterios={},
-        matrizes_de_preferencias={
-            'Experiência': [
-                [1, 1 / 4, 4],
-                [4, 1, 9],
-                [1 / 4, 1 / 9, 1]
-            ],
-            'Educação': [
-                [1, 3, 1 / 5],
-                [1 / 3, 1, 1 / 7],
-                [5, 7, 1]
-            ],
-            'Carisma': [
-                [1, 5, 9],
-                [1 / 5, 1, 4],
-                [1 / 9, 1 / 4, 1]
-            ],
-            'Idade': [
-                [1, 1 / 3, 5],
-                [3, 1, 9],
-                [1 / 5, 1 / 9, 1]
-            ],
-            'criterios': [
-                [1, 4, 3, 7],
-                [1 / 4, 1, 1 / 3, 3],
-                [1 / 3, 3, 1, 5],
-                [1 / 7, 1 / 3, 1 / 5, 1]
-            ]
-        },log=True)
+    # def post(self, request):
+    #     exemplo = AHP(metodo='',precisao=3,alternativas=['Tom', 'Dick', 'Harry'],
+    #     criterios=['Experiência', 'Educação', 'Carisma', 'Idade'],subcriterios={},
+    #     matrizes_de_preferencias={
+    #         'Experiência': [
+    #             [1, 1 / 4, 4],
+    #             [4, 1, 9],
+    #             [1 / 4, 1 / 9, 1]
+    #         ],
+    #         'Educação': [
+    #             [1, 3, 1 / 5],
+    #             [1 / 3, 1, 1 / 7],
+    #             [5, 7, 1]
+    #         ],
+    #         'Carisma': [
+    #             [1, 5, 9],
+    #             [1 / 5, 1, 4],
+    #             [1 / 9, 1 / 4, 1]
+    #         ],
+    #         'Idade': [
+    #             [1, 1 / 3, 5],
+    #             [3, 1, 9],
+    #             [1 / 5, 1 / 9, 1]
+    #         ],
+    #         'criterios': [
+    #             [1, 4, 3, 7],
+    #             [1 / 4, 1, 1 / 3, 3],
+    #             [1 / 3, 3, 1, 5],
+    #             [1 / 7, 1 / 3, 1 / 5, 1]
+    #         ]
+    #     },log=True)
 
-        resultado = exemplo.resultado()
-        print(resultado)
+    #     resultado = exemplo.resultado()
+    #     print(resultado)
 
-        plt.bar(resultado.keys(), resultado.values())
-        plt.ylabel('Prioridade')
-        plt.savefig('meu_grafico.png')
+    #     plt.bar(resultado.keys(), resultado.values())
+    #     plt.ylabel('Prioridade')
+    #     plt.savefig('meu_grafico.png')
 
-        form = AHPfForm(request.POST or None)
-        if form.is_valid():
-            form.save()
-            return redirect("home")
-        else:
-            context = {"form_contato": form}
-            return render(request, "posts/ahp.html", context)
+    #     form = AHPfForm(request.POST or None)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect("home")
+    #     else:
+    #         context = {"form_contato": form}
+    #         return render(request, "posts/ahp.html", context)
 
