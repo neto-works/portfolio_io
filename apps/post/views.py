@@ -5,12 +5,11 @@ from .models import Post
 from django.core.paginator import Paginator
 from apps.categoria.models import Categoria
 # from .utils.meu import AHP
-# from matplotlib import pyplot as plt
 # from .forms import AHPfForm
 
 
 def blog_view(request):
-    p = Post.objects.all()
+    p = Post.objects.all().order_by('-created_at')
     categorias = Categoria.objects.all()
 
     posts = []
@@ -116,10 +115,6 @@ class AHPView(View):
 
     #     resultado = exemplo.resultado()
     #     print(resultado)
-
-    #     plt.bar(resultado.keys(), resultado.values())
-    #     plt.ylabel('Prioridade')
-    #     plt.savefig('meu_grafico.png')
 
     #     form = AHPfForm(request.POST or None)
     #     if form.is_valid():

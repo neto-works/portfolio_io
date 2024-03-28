@@ -166,10 +166,222 @@
         aplicativos de desktop, são mais adequados para lidar com essa complexidade.</p>
       <h4>Utilização do mesmo</h4>
       <p>Agora que você já sabe como funciona o AHP vamos a demonstração de um pequeno exemplo da utilização do mesmo
-        para decidir qual carro comprar, considerando os critérios: </p>
+        para realizar a compra de um carro, considerando os critérios:
+      </p>
+      <ul>
+        <li>Preço popular</li>
+        <li>Econômico</li>
+        <li>Capacidade pessoas</li>
+        <li>Tecnologia embarcada</li>
+      </ul>
+      <p>Ok. Definido o objetivo, definido os criterios agora precisamos das opções e como é só uma demonstração vamos
+        fazer com 3 carros de caracteristicas que são muito bons e que devem provocar duvida na hora de escolher:</p>
+      <ul>
+        <li>Fiat Uno 2011</li>
+        <li>Fiat Argo 2022</li>
+        <li>NISSAN Kicks 2024</li>
+      </ul>
+    </div>
+    <div class="container">
+      <h2 class="my-5">Esquema de apoio a decisão para compra de um carro</h2>
+      <form action="#" method="GET">
+        {% csrf_token %}
+        <h6 class="my-2 text-bg-primary">Definição dos criterios (calcular prioridades locais):</h6>
+        <div class="row">
+          <div class="col-md-6">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="text-primary">Preço popular</th>
+                  <th>Fiat Uno 2011</th>
+                  <th>Fiat Argo 2022</th>
+                  <th>NISSAN Kicks 2024</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Fiat Uno 2011</td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>Fiat Argo 2022</td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>NISSAN Kicks 2024</td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+          <div class="col-md-6">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="text-primary">Econômia</th>
+                  <th>Fiat Uno 2011</th>
+                  <th>Fiat Argo 2022</th>
+                  <th>NISSAN Kicks 2024</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Fiat Uno 2011</td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>Fiat Argo 2022</td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>NISSAN Kicks 2024</td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="text-primary">Capacidade pessoas</th>
+                  <th>Fiat Uno 2011</th>
+                  <th>Fiat Argo 2022</th>
+                  <th>NISSAN Kicks 2024</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Fiat Uno 2011</td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>Fiat Argo 2022</td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>NISSAN Kicks 2024</td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="col-md-6">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="text-primary">Tecnologia embarcada</th>
+                  <th>Fiat Uno 2011</th>
+                  <th>Fiat Argo 2022</th>
+                  <th>NISSAN Kicks 2024</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Fiat Uno 2011</td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>Fiat Argo 2022</td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>NISSAN Kicks 2024</td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                </tr>
+
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <h6 class="my-2 text-bg-primary">Definição dos pesos (calcular prioridade global):</h6>
+        <div class="row">
+          <div class="col-md-12">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="text-primary">Pesos</th>
+                  <th>Preço popular</th>
+                  <th>Econômia</th>
+                  <th>Capacidade pessoas</th>
+                  <th>Tecnologia embarcada</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Preço popular</td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>Econômia</td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>Capacidade pessoas</td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control"></td>
+                </tr>
+                <tr>
+                  <td>Tecnologia embarcada</td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" value="1"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="container d-flex  justify-content-center">
+          <button class="btn btn-primary" type="submit">enviar</button>
+        </div>
+      </form>
+    </div>
+    <div class="container">
+      <h2 class="mt-5">Resultado</h2>
+      <h6 class="">x</h6>
+      <h6 class="">y</h6>
     </div>
   </section>
-
 
 </main>
 {% endblock content %}
