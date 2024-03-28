@@ -184,7 +184,7 @@
     </div>
     <div class="container">
       <h2 class="my-5">Esquema de apoio a decisão para compra de um carro</h2>
-      <form action="#" method="GET">
+      <form action="{% url 'ahp' %}" method="POST">
         {% csrf_token %}
         <h6 class="my-2 text-bg-primary">Definição dos criterios (calcular prioridades locais):</h6>
         <div class="row">
@@ -201,21 +201,21 @@
               <tbody>
                 <tr>
                   <td>Fiat Uno 2011</td>
-                  <td><input type="text" class="form-control" value="1"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" name="preco00" value="1"></td>
+                  <td><input type="text" class="form-control" name="preco01"></td>
+                  <td><input type="text" class="form-control" name="preco02"></td>
                 </tr>
                 <tr>
                   <td>Fiat Argo 2022</td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control" value="1"></td>
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" name="preco10"></td>
+                  <td><input type="text" class="form-control" name="preco11" value="1"></td>
+                  <td><input type="text" class="form-control" name="preco12"></td>
                 </tr>
                 <tr>
                   <td>NISSAN Kicks 2024</td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control" name="preco20"></td>
+                  <td><input type="text" class="form-control" name="preco21"></td>
+                  <td><input type="text" class="form-control" name="preco22" value="1"></td>
                 </tr>
 
               </tbody>
@@ -235,21 +235,21 @@
               <tbody>
                 <tr>
                   <td>Fiat Uno 2011</td>
-                  <td><input type="text" class="form-control" value="1"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" name="economia00" value="1"></td>
+                  <td><input type="text" class="form-control" name="economia01"></td>
+                  <td><input type="text" class="form-control" name="economia02"></td>
                 </tr>
                 <tr>
                   <td>Fiat Argo 2022</td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control" value="1"></td>
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" name="economia10"></td>
+                  <td><input type="text" class="form-control" name="economia11" value="1"></td>
+                  <td><input type="text" class="form-control" name="economia12"></td>
                 </tr>
                 <tr>
                   <td>NISSAN Kicks 2024</td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control" name="economia20"></td>
+                  <td><input type="text" class="form-control" name="economia21"></td>
+                  <td><input type="text" class="form-control" name="economia22" value="1"></td>
                 </tr>
               </tbody>
             </table>
@@ -270,21 +270,21 @@
               <tbody>
                 <tr>
                   <td>Fiat Uno 2011</td>
-                  <td><input type="text" class="form-control" value="1"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" name="capacidade00" value="1"></td>
+                  <td><input type="text" class="form-control" name="capacidade01"></td>
+                  <td><input type="text" class="form-control" name="capacidade02"></td>
                 </tr>
                 <tr>
                   <td>Fiat Argo 2022</td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control" value="1"></td>
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" name="capacidade10"></td>
+                  <td><input type="text" class="form-control" name="capacidade11" value="1"></td>
+                  <td><input type="text" class="form-control" name="capacidade12"></td>
                 </tr>
                 <tr>
                   <td>NISSAN Kicks 2024</td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control" name="capacidade20"></td>
+                  <td><input type="text" class="form-control" name="capacidade21"></td>
+                  <td><input type="text" class="form-control" name="capacidade22" value="1"></td>
                 </tr>
               </tbody>
             </table>
@@ -303,21 +303,21 @@
               <tbody>
                 <tr>
                   <td>Fiat Uno 2011</td>
-                  <td><input type="text" class="form-control" value="1"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" name="tecnologia00" value="1"></td>
+                  <td><input type="text" class="form-control" name="tecnologia01"></td>
+                  <td><input type="text" class="form-control" name="tecnologia02"></td>
                 </tr>
                 <tr>
                   <td>Fiat Argo 2022</td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control" value="1"></td>
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" name="tecnologia10"></td>
+                  <td><input type="text" class="form-control" name="tecnologia11" value="1"></td>
+                  <td><input type="text" class="form-control" name="tecnologia12"></td>
                 </tr>
                 <tr>
                   <td>NISSAN Kicks 2024</td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control" name="tecnologia20"></td>
+                  <td><input type="text" class="form-control" name="tecnologia21"></td>
+                  <td><input type="text" class="form-control" name="tecnologia22" value="1"></td>
                 </tr>
 
               </tbody>
@@ -341,31 +341,31 @@
               <tbody>
                 <tr>
                   <td>Preço popular</td>
-                  <td><input type="text" class="form-control" value="1"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal00" value="1"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal01"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal02"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal03"></td>
                 </tr>
                 <tr>
                   <td>Econômia</td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control" value="1"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal10"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal11" value="1"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal12"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal13"></td>
                 </tr>
                 <tr>
                   <td>Capacidade pessoas</td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control" value="1"></td>
-                  <td><input type="text" class="form-control"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal20"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal21"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal22" value="1"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal23"></td>
                 </tr>
                 <tr>
                   <td>Tecnologia embarcada</td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control"></td>
-                  <td><input type="text" class="form-control" value="1"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal30"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal31"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal32"></td>
+                  <td><input type="text" class="form-control" name="pesoglobal33" value="1"></td>
                 </tr>
               </tbody>
             </table>
@@ -378,8 +378,7 @@
     </div>
     <div class="container">
       <h2 class="mt-5">Resultado</h2>
-      <h6 class="">x</h6>
-      <h6 class="">y</h6>
+      <h6 class="">{{ resultado }}</h6>
     </div>
   </section>
 

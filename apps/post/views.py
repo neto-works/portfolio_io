@@ -4,12 +4,11 @@ from django.views import View
 from .models import Post
 from django.core.paginator import Paginator
 from apps.categoria.models import Categoria
-# from .utils.meu import AHP
-# from .forms import AHPfForm
+from .utils.meu import AHP
 
 
 def blog_view(request):
-    p = Post.objects.all().order_by('-created_at')
+    p = Post.objects.all().order_by("-created_at")
     categorias = Categoria.objects.all()
 
     posts = []
@@ -74,53 +73,142 @@ def make_pagination_range(page_range, links_mostrados, qual_pagina_esta):
         "ultima_pagina_na_telah": stop_range < total_page,
     }
 
+
+def pegar_numero(request, nome_campo) -> float:
+    return float(request.POST.get(nome_campo, 0))
+
+
+def pegar_divisivel(request, nome_campo) -> float:
+    numero_string = request.POST.get(nome_campo)
+    primeiro_caractere = ''
+    terceiro_caractere = ''
+
+    if len(numero_string) == 3:
+        primeiro_caractere = float(numero_string[0])
+        terceiro_caractere = float(numero_string[2])
+
+    elif primeiro_caractere == 0 or len(numero_string) <= 4:
+        return 0
+
+    return float(primeiro_caractere / terceiro_caractere)
+
+
 class AHPView(View):
 
     def get(self, request):
-        # form = AHPfForm()
-        # context = {"form_contato": form}
         return render(request, "posts/ahp.html")
 
-    # def post(self, request):
-    #     exemplo = AHP(metodo='',precisao=3,alternativas=['Tom', 'Dick', 'Harry'],
-    #     criterios=['Experiência', 'Educação', 'Carisma', 'Idade'],subcriterios={},
-    #     matrizes_de_preferencias={
-    #         'Experiência': [
-    #             [1, 1 / 4, 4],
-    #             [4, 1, 9],
-    #             [1 / 4, 1 / 9, 1]
-    #         ],
-    #         'Educação': [
-    #             [1, 3, 1 / 5],
-    #             [1 / 3, 1, 1 / 7],
-    #             [5, 7, 1]
-    #         ],
-    #         'Carisma': [
-    #             [1, 5, 9],
-    #             [1 / 5, 1, 4],
-    #             [1 / 9, 1 / 4, 1]
-    #         ],
-    #         'Idade': [
-    #             [1, 1 / 3, 5],
-    #             [3, 1, 9],
-    #             [1 / 5, 1 / 9, 1]
-    #         ],
-    #         'criterios': [
-    #             [1, 4, 3, 7],
-    #             [1 / 4, 1, 1 / 3, 3],
-    #             [1 / 3, 3, 1, 5],
-    #             [1 / 7, 1 / 3, 1 / 5, 1]
-    #         ]
-    #     },log=True)
+    def post(self, request):
+        exemplo = AHP(
+            metodo="",
+            precisao=3,
+            alternativas=["Fiat Uno 2011", "Fiat Argo 2022", "NISSAN Kicks 2024"],
+            criterios=[
+                "Preço popular",
+                "Econômia",
+                "Capacidade pessoas",
+                "Tecnologia embarcada",
+            ],
+            subcriterios={},
+            matrizes_de_preferencias={
+                "Preço popular": [
+                    [
+                        1,
+                        pegar_numero(request, "preco01"),
+                        pegar_numero(request, "preco02"),
+                    ],
+                    [pegar_numero(request,"preco10"), 1, pegar_numero(request, "preco12")],
+                    [
+                        pegar_divisivel(request, "preco20"),
+                        pegar_divisivel(request, "preco21"),
+                        1,
+                    ],
+                ],
+                "Econômia": [
+                    [
+                        1,
+                        pegar_numero(request, "economia01"),
+                        pegar_numero(request, "economia02"),
+                    ],
+                    [
+                        pegar_numero(request,"economia10"),
+                        1,
+                        pegar_numero(request, "economia12"),
+                    ],
+                    [
+                        pegar_divisivel(request, "economia20"),
+                        pegar_divisivel(request, "economia21"),
+                        1,
+                    ],
+                ],
+                "Capacidade pessoas": [
+                    [
+                        1,
+                        pegar_numero(request, "capacidade01"),
+                        pegar_numero(request, "capacidade02"),
+                    ],
+                    [
+                        pegar_numero(request,"capacidade10"),
+                        1,
+                        pegar_numero(request, "capacidade12"),
+                    ],
+                    [
+                        pegar_divisivel(request, "capacidade20"),
+                        pegar_divisivel(request, "capacidade21"),
+                        1,
+                    ],
+                ],
+                "Tecnologia embarcada": [
+                    [
+                        1,
+                        pegar_numero(request, "tecnologia01"),
+                        pegar_numero(request, "tecnologia02"),
+                    ],
+                    [
+                        pegar_numero(request, "tecnologia10"),
+                        1,
+                        pegar_numero(request, "tecnologia12"),
+                    ],
+                    [
+                        pegar_divisivel(request, "tecnologia20"),
+                        pegar_divisivel(request, "tecnologia21"),
+                        1,
+                    ],
+                ],
+                "criterios": [
+                    [
+                        1,
+                        pegar_numero(request, "pesoglobal01"),
+                        pegar_numero(request, "pesoglobal02"),
+                        pegar_numero(request, "pesoglobal03"),
+                    ],
+                    [
+                        pegar_divisivel(request, "pesoglobal10"),
+                        1,
+                        pegar_divisivel(request, "pesoglobal12"),
+                        pegar_numero(request, "pesoglobal13"),
+                    ],
+                    [
+                        pegar_divisivel(request, "pesoglobal20"),
+                        pegar_numero(request, "pesoglobal21"),
+                        1,
+                        pegar_numero(request, "pesoglobal23"),
+                    ],
+                    [
+                        pegar_divisivel(request, "pesoglobal30"),
+                        pegar_divisivel(request, "pesoglobal31"),
+                        pegar_divisivel(request, "pesoglobal32"),
+                        1,
+                    ],
+                ],
+            },
+            log=True,
+        )
 
-    #     resultado = exemplo.resultado()
-    #     print(resultado)
+        resultado = exemplo.resultado()
+        context = {"resultado": resultado}
 
-    #     form = AHPfForm(request.POST or None)
-    #     if form.is_valid():
-    #         form.save()
-    #         return redirect("home")
-    #     else:
-    #         context = {"form_contato": form}
-    #         return render(request, "posts/ahp.html", context)
-
+        if resultado :
+            return render(request, "posts/ahp.html", context)
+        else:
+            return render(request, "posts/ahp.html", context)
