@@ -129,20 +129,11 @@ class AHP:
             )
 
             if self.log:
-                print(
-                    "\nPrioridades locais do criterio " + criterio + ":\n",
-                    prioridades_locais,
-                )
+                print("\nPrioridades locais do criterio " + criterio + ":\n",prioridades_locais)
                 print("Soma: ", np.round(np.sum(prioridades_locais), self.precisao))
                 print("Lambda_max = ", lambda_max)
-                print(
-                    "Indice de Consistencia " + criterio + " = ",
-                    round(indice_consistencia, self.precisao),
-                )
-                print(
-                    "Razão de Concistência " + criterio + " = ",
-                    round(razao_consistencia, 2),
-                )
+                print("Indice de Consistencia " + criterio + " = ",round(indice_consistencia, self.precisao))
+                print("Razão de Concistência " + criterio + " = ",round(razao_consistencia, 2))
 
         return vetor_prioridades_locais
 
@@ -153,24 +144,17 @@ class AHP:
             prioridade_global = np.round(peso * prioridades_locais, self.precisao)
 
             if criterio in self.subcriterios:
-                self.calcula_prioridades_globais(
-                    prioridades, prioridade_global, self.subcriterios[criterio]
-                )
+                self.calcula_prioridades_globais(prioridades, prioridade_global, self.subcriterios[criterio])
             else:
                 self.prioridade_globais.append(prioridade_global)
 
                 if self.log:
-                    print(
-                        "\nPrioridades globais do criterio " + criterio + "\n",
-                        prioridade_global,
-                    )
+                    print("\nPrioridades globais do criterio " + criterio + "\n",prioridade_global)
                     print("Soma: ", sum(prioridade_global).round(self.precisao))
 
     def resultado(self):
         prioridades = self.calcula_prioridades_locais()
-        self.calcula_prioridades_globais(
-            prioridades, prioridades["criterios"], self.criterios
-        )
+        self.calcula_prioridades_globais(prioridades, prioridades["criterios"], self.criterios)
         prioridades = np.array(self.prioridade_globais)
         prioridades = prioridades.sum(axis=0).round(self.precisao)
 

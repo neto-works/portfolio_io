@@ -75,23 +75,11 @@ def make_pagination_range(page_range, links_mostrados, qual_pagina_esta):
 
 
 def pegar_numero(request, nome_campo) -> float:
-    return float(request.POST.get(nome_campo, 0))
-
-
-def pegar_divisivel(request, nome_campo) -> float:
     numero_string = request.POST.get(nome_campo)
-    primeiro_caractere = ''
-    terceiro_caractere = ''
-
-    if len(numero_string) == 3:
-        primeiro_caractere = float(numero_string[0])
-        terceiro_caractere = float(numero_string[2])
-
-    elif primeiro_caractere == 0 or len(numero_string) <= 4:
-        return 0
-
-    return float(primeiro_caractere / terceiro_caractere)
-
+    if "/" in numero_string:
+        partes = numero_string.split("/")
+        return float(partes[0]) / float(partes[1])
+    return float(numero_string) if numero_string is not None and (numero_string !='') else 0.0
 
 class AHPView(View):
 
@@ -117,10 +105,14 @@ class AHPView(View):
                         pegar_numero(request, "preco01"),
                         pegar_numero(request, "preco02"),
                     ],
-                    [pegar_numero(request,"preco10"), 1, pegar_numero(request, "preco12")],
                     [
-                        pegar_divisivel(request, "preco20"),
-                        pegar_divisivel(request, "preco21"),
+                        pegar_numero(request, "preco10"),
+                        1,
+                        pegar_numero(request, "preco12"),
+                    ],
+                    [
+                        pegar_numero(request, "preco20"),
+                        pegar_numero(request, "preco21"),
                         1,
                     ],
                 ],
@@ -131,13 +123,13 @@ class AHPView(View):
                         pegar_numero(request, "economia02"),
                     ],
                     [
-                        pegar_numero(request,"economia10"),
+                        pegar_numero(request, "economia10"),
                         1,
                         pegar_numero(request, "economia12"),
                     ],
                     [
-                        pegar_divisivel(request, "economia20"),
-                        pegar_divisivel(request, "economia21"),
+                        pegar_numero(request, "economia20"),
+                        pegar_numero(request, "economia21"),
                         1,
                     ],
                 ],
@@ -148,13 +140,13 @@ class AHPView(View):
                         pegar_numero(request, "capacidade02"),
                     ],
                     [
-                        pegar_numero(request,"capacidade10"),
+                        pegar_numero(request, "capacidade10"),
                         1,
                         pegar_numero(request, "capacidade12"),
                     ],
                     [
-                        pegar_divisivel(request, "capacidade20"),
-                        pegar_divisivel(request, "capacidade21"),
+                        pegar_numero(request, "capacidade20"),
+                        pegar_numero(request, "capacidade21"),
                         1,
                     ],
                 ],
@@ -170,8 +162,8 @@ class AHPView(View):
                         pegar_numero(request, "tecnologia12"),
                     ],
                     [
-                        pegar_divisivel(request, "tecnologia20"),
-                        pegar_divisivel(request, "tecnologia21"),
+                        pegar_numero(request, "tecnologia20"),
+                        pegar_numero(request, "tecnologia21"),
                         1,
                     ],
                 ],
@@ -183,32 +175,31 @@ class AHPView(View):
                         pegar_numero(request, "pesoglobal03"),
                     ],
                     [
-                        pegar_divisivel(request, "pesoglobal10"),
+                        pegar_numero(request, "pesoglobal10"),
                         1,
-                        pegar_divisivel(request, "pesoglobal12"),
+                        pegar_numero(request, "pesoglobal12"),
                         pegar_numero(request, "pesoglobal13"),
                     ],
                     [
-                        pegar_divisivel(request, "pesoglobal20"),
+                        pegar_numero(request, "pesoglobal20"),
                         pegar_numero(request, "pesoglobal21"),
                         1,
                         pegar_numero(request, "pesoglobal23"),
                     ],
                     [
-                        pegar_divisivel(request, "pesoglobal30"),
-                        pegar_divisivel(request, "pesoglobal31"),
-                        pegar_divisivel(request, "pesoglobal32"),
+                        pegar_numero(request, "pesoglobal30"),
+                        pegar_numero(request, "pesoglobal31"),
+                        pegar_numero(request, "pesoglobal32"),
                         1,
                     ],
                 ],
             },
             log=True,
         )
-
         resultado = exemplo.resultado()
         context = {"resultado": resultado}
-
-        if resultado :
+        if resultado:
             return render(request, "posts/ahp.html", context)
         else:
+            context = {"resultado": "Algo de errado não esta certo!"}
             return render(request, "posts/ahp.html", context)
