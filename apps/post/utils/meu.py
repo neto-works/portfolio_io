@@ -23,6 +23,8 @@ class AHP:
         self.matrizes_de_preferencias = matrizes_de_preferencias
         self.prioridade_globais = []
         self.log = log
+        self.log_consistencia_local = []
+        self.log_consistencia_global = []
 
     """_summary_
         Nesse metodo fazemos a soma das colunas nas respectivas linhas (soma_coluna1 -a1,a2,a3, soma_coluna2 -b1,b2,b3, soma_coluna3 -c1,c2,c3)
@@ -48,9 +50,7 @@ class AHP:
         return matriz_normalizada.round(precisao)
 
     @staticmethod
-    def metodo_autovalor(
-        matriz, precisao, numero_max_iteracao=100, autovetor_anterior=None
-    ):
+    def metodo_autovalor(matriz, precisao, numero_max_iteracao=100, autovetor_anterior=None):
         matriz_quadrada = np.linalg.matrix_power(matriz, 2)  # elevar ao quadrado
         soma_linhas = np.sum(matriz_quadrada, axis=1)
         soma_coluna = np.sum(soma_linhas, axis=0)
@@ -110,6 +110,7 @@ class AHP:
     """
     def calcula_prioridades_locais(self):
         vetor_prioridades_locais = {}
+        self.log_consistencia_local.clear()
         for criterio in self.matrizes_de_preferencias:
             matriz = np.array(self.matrizes_de_preferencias[criterio])
             if self.metodo == "aproximado":
@@ -129,15 +130,16 @@ class AHP:
             )
 
             if self.log:
-                print("\nPrioridades locais do criterio " + criterio + ":\n",prioridades_locais)
-                print("Soma: ", np.round(np.sum(prioridades_locais), self.precisao))
-                print("Lambda_max = ", lambda_max)
-                print("Indice de Consistencia " + criterio + " = ",round(indice_consistencia, self.precisao))
-                print("Razão de Concistência " + criterio + " = ",round(razao_consistencia, 2))
+                self.log_consistencia_local.append("Prioridades locais do critério " + criterio + ": " + str(prioridades_locais))
+                self.log_consistencia_local.append("Soma: " + str(np.round(np.sum(prioridades_locais), self.precisao)))
+                self.log_consistencia_local.append("Lambda_max = " + str(lambda_max))
+                self.log_consistencia_local.append("Índice de Consistência " + criterio + " = " + str(round(indice_consistencia, self.precisao)))
+                self.log_consistencia_local.append("Razão de Consistência " + criterio + " = " + str(round(razao_consistencia, 2)))
 
         return vetor_prioridades_locais
 
     def calcula_prioridades_globais(self, prioridades, pesos, criterios):
+        self.log_consistencia_global.clear()
         for criterio in criterios:
             peso = pesos[criterios.index(criterio)]
             prioridades_locais = prioridades[criterio]
@@ -149,8 +151,8 @@ class AHP:
                 self.prioridade_globais.append(prioridade_global)
 
                 if self.log:
-                    print("\nPrioridades globais do criterio " + criterio + "\n",prioridade_global)
-                    print("Soma: ", sum(prioridade_global).round(self.precisao))
+                    self.log_consistencia_global.append("Prioridades globais do critério " + criterio + "\n" + str(prioridade_global))
+                    self.log_consistencia_global.append("Soma: " + str(round(sum(prioridade_global), self.precisao)))
 
     def resultado(self):
         prioridades = self.calcula_prioridades_locais()

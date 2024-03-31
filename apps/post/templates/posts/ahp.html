@@ -327,58 +327,75 @@
         </div>
         <h6 class="my-2 text-bg-primary">Definição dos pesos (calcular prioridade global):</h6>
         <div class="row">
-          <div class="col-md-12">
-            <table class="table">
-              <thead>
-                <tr>
-                  <th class="text-primary">Pesos</th>
-                  <th>Preço popular</th>
-                  <th>Econômia</th>
-                  <th>Capacidade pessoas</th>
-                  <th>Tecnologia embarcada</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Preço popular</td>
-                  <td><input type="text" class="form-control" name="pesoglobal00" value="1"></td>
-                  <td><input type="text" class="form-control" name="pesoglobal01"></td>
-                  <td><input type="text" class="form-control" name="pesoglobal02"></td>
-                  <td><input type="text" class="form-control" name="pesoglobal03"></td>
-                </tr>
-                <tr>
-                  <td>Econômia</td>
-                  <td><input type="text" class="form-control" name="pesoglobal10"></td>
-                  <td><input type="text" class="form-control" name="pesoglobal11" value="1"></td>
-                  <td><input type="text" class="form-control" name="pesoglobal12"></td>
-                  <td><input type="text" class="form-control" name="pesoglobal13"></td>
-                </tr>
-                <tr>
-                  <td>Capacidade pessoas</td>
-                  <td><input type="text" class="form-control" name="pesoglobal20"></td>
-                  <td><input type="text" class="form-control" name="pesoglobal21"></td>
-                  <td><input type="text" class="form-control" name="pesoglobal22" value="1"></td>
-                  <td><input type="text" class="form-control" name="pesoglobal23"></td>
-                </tr>
-                <tr>
-                  <td>Tecnologia embarcada</td>
-                  <td><input type="text" class="form-control" name="pesoglobal30"></td>
-                  <td><input type="text" class="form-control" name="pesoglobal31"></td>
-                  <td><input type="text" class="form-control" name="pesoglobal32"></td>
-                  <td><input type="text" class="form-control" name="pesoglobal33" value="1"></td>
-                </tr>
-              </tbody>
-            </table>
+          <div class="col-lg-12 col-md-6">
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th class="text-primary">Pesos</th>
+                    <th>Preço popular</th>
+                    <th>Econômia</th>
+                    <th>Capacidade pessoas</th>
+                    <th>Tecnologia embarcada</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Preço popular</td>
+                    <td><input type="text" class="form-control" name="pesoglobal00" value="1"></td>
+                    <td><input type="text" class="form-control" name="pesoglobal01"></td>
+                    <td><input type="text" class="form-control" name="pesoglobal02"></td>
+                    <td><input type="text" class="form-control" name="pesoglobal03"></td>
+                  </tr>
+                  <tr>
+                    <td>Econômia</td>
+                    <td><input type="text" class="form-control" name="pesoglobal10"></td>
+                    <td><input type="text" class="form-control" name="pesoglobal11" value="1"></td>
+                    <td><input type="text" class="form-control" name="pesoglobal12"></td>
+                    <td><input type="text" class="form-control" name="pesoglobal13"></td>
+                  </tr>
+                  <tr>
+                    <td>Capacidade pessoas</td>
+                    <td><input type="text" class="form-control" name="pesoglobal20"></td>
+                    <td><input type="text" class="form-control" name="pesoglobal21"></td>
+                    <td><input type="text" class="form-control" name="pesoglobal22" value="1"></td>
+                    <td><input type="text" class="form-control" name="pesoglobal23"></td>
+                  </tr>
+                  <tr>
+                    <td>Tecnologia embarcada</td>
+                    <td><input type="text" class="form-control" name="pesoglobal30"></td>
+                    <td><input type="text" class="form-control" name="pesoglobal31"></td>
+                    <td><input type="text" class="form-control" name="pesoglobal32"></td>
+                    <td><input type="text" class="form-control" name="pesoglobal33" value="1"></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
         <div class="container d-flex  justify-content-center">
-          <button class="btn btn-primary" type="submit">enviar</button>
+          <button class="btn btn-primary" type="submit">calcular</button>
         </div>
       </form>
     </div>
     <div class="container">
       <h2 class="mt-5">Resultado</h2>
-      <h6 class="">{{ resultado }}</h6>
+      <h6 class="">A melhor opção a ser escolhida é: {{ resultado }} com <span class="h4 text-primary">x % .</span></h6>
+      <h6 class="text-success">Indice de consistencia deve ser menor ou igual a 10% </h6>
+      <h6 class="text-primary">Indices Locais </h6>
+      <p>
+        {% for x in ic_local%}
+        <li>{{x}}</li>
+        {% endfor %}
+
+      </p>
+      <h6 class="text-primary">Indices Globais </h6>
+      <p>
+        {% for z in ic_global%}
+        <li>{{z}}</li>
+        {% endfor %}
+
+      </p>
     </div>
   </section>
 

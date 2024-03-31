@@ -197,7 +197,7 @@ class AHPView(View):
             log=True,
         )
         resultado = exemplo.resultado()
-        context = {"resultado": resultado}
+        context = {"resultado": resultado,"ic_local":exemplo.log_consistencia_local,"ic_global":exemplo.log_consistencia_global}
         if resultado:
             return render(request, "posts/ahp.html", context)
         else:
