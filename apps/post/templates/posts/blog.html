@@ -62,7 +62,7 @@
               <div class="d-lg-flex flex-center-start gap-3 overflow-hidden">
                 <ul class="navbar-nav ms-auto fs-4 ps-6">
                   <li class="nav-item"><a class="nav-link d-inline-block nav-text-outlined lh-1 text-white fs-1"
-                      aria-current="page" href="{% url 'home' %}">Início</a></li>
+                      aria-current="page" href="{% url 'blog' %}">Início</a></li>
                   <li class="nav-item"><a class="nav-link d-inline-block nav-text-outlined lh-1 text-white fs-1"
                       aria-current="page" href="{% url 'home' %}">Sobre</a></li>
                   <li class="nav-item"><a class="nav-link d-inline-block nav-text-outlined lh-1 text-white fs-1"
@@ -81,11 +81,10 @@
                 <h1 class="ms-2 fw-bolder text-outlined text-uppercase text-white pe-none display-1">Blog</h1>
               </div>
               <div class="d-flex gap-3 align-items-start">
-                <a class="mb-0 ms-auto text-secondary fs-0 fw-bold text-uppercase" href="#categorias"> Pesquise por
-                  Categorias</a>
+                <a class="mb-0 ms-auto text-secondary fs-0 fw-bold text-uppercase" href="#categorias"> Pesquise</a>
                 <ul class="navbar-nav navbar-fotogency ms-auto text-end">
                   <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
-                      href="{% url 'home' %}">Início</a></li>
+                      href="{% url 'blog' %}">Início</a></li>
                   <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
                       href="{% url 'home' %}#about">Sobre</a></li>
                   <li class="nav-item px-2 position-relative"><a class="nav-link pt-0" aria-current="page"
@@ -206,75 +205,65 @@
             <p>Guias e Tutoriais Práticos: Quer aprender a dominar uma nova ferramenta ou aproveitar ao máximo seu
               dispositivo atual? Nossos guias e tutoriais práticos fornecem instruções passo a passo para ajudá-lo a se
               tornar um mestre da tecnologia.</p>
-
-            <b>
-              <p>Por que nos escolher?</p>
-            </b>
-
-            <p> Informação Confiável: Nosso compromisso é fornecer informações precisas e confiáveis, para que você
-              possa
-              confiar em nós para orientá-lo no mundo em rápida evolução da tecnologia.</p>
-
-            <p>Paixão pela Tecnologia: Somos apaixonados por tudo relacionado à tecnologia e essa paixão transparece em
-              cada artigo que escrevemos. Estamos aqui para compartilhar nossa empolgação e conhecimento com você. </p>
           </article>
         </div>
         <div class="col-lg-4" id="categorias">
           <div class="card mb-4">
             <div class="card-header">Search</div>
             <div class="card-body">
-              <div class="input-group">
-                <input class="form-control" type="text" placeholder="Enter search term..."
-                  aria-label="Enter search term..." aria-describedby="button-search" />
-                <button class="btn btn-secondary" id="button-search" type="button">Go!</button>
-              </div>
-            </div>
-          </div>
-          <div class="card mb-4">
-            <div class="card-header">Categories</div>
-            <div class="card-body">
-              <div class="row">
-                <div class="col-sm-6">
-                  <ul class="list-unstyled mb-0">
-                    {% for categoria in categorias %}
-                    <li><a href="#!">{{ categoria.titulo }}</a></li>
-                    {% endfor %}
-                  </ul>
-                </div>
-                <div class="col-sm-6">
-                  <ul class="list-unstyled mb-0">
-                    <li><a href="#!">Tecnologia</a></li>
-                    <li><a href="#!">Tutorials</a></li>
-                    <li><a href="#!">Novo</a></li>
-                  </ul>
-                </div>
-              </div>
+              <form action="{% url 'search' %}" method="GET">
+                <div class="input-group">
+                  <input class="form-control" type="text" placeholder="Enter search term..." aria-label="Enter search term..." aria-describedby="button-search" name="search_input" required />
+                  <button class="btn btn-secondary" id="button-search" type="submit">Go!</button>
+              </form>
             </div>
           </div>
         </div>
+        <!-- <div class="card mb-4">
+          <div class="card-header">Categories</div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <ul class="list-unstyled mb-0">
+                  {% for categoria in categorias %}
+                  <li><a href="#!">{{ categoria.titulo }}</a></li>
+                  {% endfor %}
+                </ul>
+              </div>
+              <div class="col-sm-6">
+                <ul class="list-unstyled mb-0">
+                  <li><a href="#!">Tecnologia</a></li>
+                  <li><a href="#!">Tutorials</a></li>
+                  <li><a href="#!">Novo</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div> -->
       </div>
+    </div>
 
-      <div class="row">
-        {% for post in posts_paginados %}
-        <div class="col-lg-8">
-          <article>
-            <header class="mb-4">
-              {% for categ in post.categorias %}
-              <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ categ.titulo }}</a>
-              {% endfor %}
-              <br /><br />
-              <div class="text-muted fst-italic mb-2">Postado em {{ post.created_at}}</div>
-            </header>
-            <figure class="mb-0"><img class="img-fluid rounded" src="{{ post.imagem }}" alt="..." /></figure>
-            <section class="mb-1">
-              <h1 class="fw-bolder mb-4 mt-0">{{ post.titulo }}</h1>
-              <p class="fs-1 mb-4">{{ post.descricao | safe }}</p>
-              <p><i>escrito por: _</i>{{ post.blogueiro_id }}</p>
-            </section>
-          </article>
-        </div>
-        {% endfor %}
+    <div class="row">
+      {% for post in posts_paginados %}
+      <div class="col-lg-8">
+        <article>
+          <header class="mb-4">
+            {% for categ in post.categorias %}
+            <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{ categ.titulo }}</a>
+            {% endfor %}
+            <br /><br />
+            <div class="text-muted fst-italic mb-2">Postado em {{ post.created_at}}</div>
+          </header>
+          <figure class="mb-0"><img class="img-fluid rounded" src="{{ post.imagem }}" alt="..." /></figure>
+          <section class="mb-1">
+            <h1 class="fw-bolder mb-4 mt-0">{{ post.titulo }}</h1>
+            <p class="fs-1 mb-4">{{ post.descricao | safe }}</p>
+            <p><i>escrito por: _</i>{{ post.blogueiro_id }}</p>
+          </section>
+        </article>
       </div>
+      {% endfor %}
+    </div>
 
     </div>
     {% include 'partials/pagination.html' %}
@@ -293,7 +282,7 @@
         </div>
         <div class="col-lg-6">
           <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
-            <a href="{% url 'home' %}" class="scrollto">Início</a>
+            <a href="{% url 'blog' %}" class="scrollto">Início</a>
             <a href="#about" class="scrollto">Sobre</a>
             <a href="#">Política de Privacidade</a>
             <a href="#">Termos de Uso</a>
