@@ -16,6 +16,7 @@
   <a href="#">Modelo Logico</a> •
   <a href="#Tecnologias_usadas">Tecnologias Usadas</a> •
   <a href="#Rodando_aplicação">Rodando aplicação</a> •
+   <a href="#Imagens_aplicação">Imagens aplicação rodando</a> •
 </p>
 
 ## Modelo_Conceitual
@@ -81,5 +82,11 @@ Opcional para Produção
 
 `docker-compose down  && docker rmi $(docker images -q) && docker images`
 
+### Imagens_aplicação
+
+<img src="https://github.com/neto-works/portfolio_io/blob/main/abs_docs/imgs/Captura%20de%20tela%20de%202024-08-05%2018-06-27.png" width="300" height="200">
+<img src="https://github.com/neto-works/portfolio_io/blob/main/abs_docs/imgs/Captura%20de%20tela%20de%202024-08-05%2018-07-17.png" width="300" height="200">
+<img src="https://github.com/neto-works/portfolio_io/blob/main/abs_docs/imgs/Captura%20de%20tela%20de%202024-08-05%2018-08-09.png" width="300" height="200">
+<img src="https://github.com/neto-works/portfolio_io/blob/main/abs_docs/imgs/Captura%20de%20tela%20de%202024-08-05%2018-08-57.png" width="300" height="200">
 
 <img width=100% src="https://capsule-render.vercel.app/api?type=waving&color=3498db&height=120&section=footer"/>
